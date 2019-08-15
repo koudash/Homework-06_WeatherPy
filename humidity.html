@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- |head starts| -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Bootstrap Visualization Dashboard</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- Bootstrap jQuery and Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!-- "Sketchy" theme from Bootswatch -->
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+        <!-- Local style CSS -->
+        <link rel="stylesheet" type="text/css" href="./assets/styles/style_visualization.css">
+        <!-- Avoid fake favicon requests -->
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <!-- Script to change/reset image sources with button clicking -->
+        <script>
+        function imgChange()
+        {
+            document.getElementById("imgChange-target").src="./assets/images/lat_vs_humidity_polyfit.png";
+        }
+                
+        function imgReset()
+        {
+            document.getElementById("imgChange-target").src="./assets/images/lat_vs_humidity.png";
+        }
+        </script>
+    <!-- |head ends| -->
+    </head>
+    <!-- |body starts| -->
+    <body>
+        <!-- ||pg-lyt-container starts|| -->
+        <div id='pg-lyt-container'>
+            <!-- |||pg-lyt-header starts||| -->
+            <div id='pg-lyt-header'>
+                <nav class="navbar navbar-expand-sm navbar-light bg-light py-0">
+                    <a class="navbar-brand ml-4 px-3 text-white-50 bg-dark" href="./index.html">Lattitude</a>
+                    <button class="navbar-toggler py-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>              
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Set ul to right -->
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Plots
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="./temperature.html">Max Temperature</a>
+                                    <a class="dropdown-item" href="./humidity.html">Humidity</a>
+                                    <a class="dropdown-item" href="./cloudiness.html">Cloudiness</a>
+                                    <a class="dropdown-item" href="./wind_speed.html">Wind Speed</a>
+                                </div>
+                            </li>
+                            <li class="nav-item active">
+                              <a class="nav-link" href="./comparison.html">Comparison <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item mr-4">
+                              <a class="nav-link" href="./data.html">Data</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            <!-- |||pg-lyt-header ends||| -->                
+            </div>
+            <!-- |||pg-lyt-body starts||| --> 
+            <div id='pg-lyt-body'>
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-xs-8 m-3 pt-5 pb-3 bg-white">
+                            <h2>Humidity</h2>
+                            <hr>
+                            <p><img class='big-img' id="imgChange-target" src="./assets/images/lat_vs_humidity.png" alt="humidity">Relative humidity (RH), referred to as "humidity" here, is the amount of moisture in the air divided by how much moisture the air can hold. Back to the Latitude vs. Humidity plot, polynomial regression (<input type="button" class="btn btn-outline-danger btn-sm" value="P-RG Curve" onclick="imgChange()">/<input type="button" class="btn btn-outline-info btn-sm" value="Reset" onclick="imgReset()">) with relatively low (deg=5, red dashed line) and high degrees (deg=25, magenta solid line) both suggest there be RH peaks around 10<sup>o</sup>S and 60<sup>o</sup>N and grooves around 40<sup>o</sup>S and 35<sup>o</sup>N.</p>
+                            <p>Many factors are able to affect RH, with temperature sitting at the top hierarchy. Inspired by the Latitude vs. Temperature plot, it is easy to conclude the 10<sup>o</sup>S peak to be most likely high-temperature driven. Global atmospheric circulation is another factor that counts in this Latitude vs. Humidity plot as relatively low atmospheric pressure enables it to hold more moisture in the air. Coincidentally, both 10<sup>o</sup>S (Equatorial LPZ) and 60<sup>o</sup>N (Subpolar LPZ) locate in low pressure zones (LPZ) whereas 40<sup>o</sup>S and 35<sup>o</sup>N are in Subtropical high pressure zone (HPZ). Moreover, the cold, dense Arctic polar water descending along the ocean bottom towards the equator might be an individual contributor to the high humidity around 60<sup>o</sup>N by stirring the surface water to vaporize to the air.
+                        </div>
+                        <div class="col-lg-3 col-xs-8 m-3 pt-5 pb-3 bg-white">
+                            <h3>Visualizations</h3>
+                            <hr>
+                            <a href="./temperature.html"><img class='sm-img' src="./assets/images/lat_vs_temperature.png" alt="temperature"></a>
+                            <img class='sm-img border border-secondary rounded' src="./assets/images/lat_vs_humidity.png" alt="humidity">
+                            <a href="./cloudiness.html"><img class='sm-img' src="./assets/images/lat_vs_cloudiness.png" alt="cloudiness"></a> 
+                            <a href="./wind_speed.html"><img class='sm-img' src="./assets/images/lat_vs_wind_speed.png" alt="wind speed"></a>    
+                        </div>
+                    </div>
+                </div>
+            <!-- |||pg-lyt-body ends||| -->                 
+            </div>
+            <!-- |||pg-lyt-footer||| -->
+            <div id='pg-lyt-footer'><hr id='hr-footer'>Rice Coding Bootcamp 2019 - Web Visual HW by Lei Kang</div>
+        <!-- ||pg-lyt-container ends|| -->        
+        </div>
+    <!-- |body ends| -->
+    </body>        
+</html>

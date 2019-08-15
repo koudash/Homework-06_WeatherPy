@@ -1,0 +1,46 @@
+/* >>>>>>>>>>PAGE LAYOUT START>>>>>>>>>> */
+/* pg-lyt-body */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%
+}
+
+/* ||pg-lyt-container|| */
+#pg-lyt-container {
+    min-height: 100%;
+    position: relative;
+    background-color: lightgray;
+}
+
+/* |||pg-lyt-header||| */
+#pg-lyt-header {
+    padding: 10px;
+}
+
+/* |||pg-lyt-body||| */
+#pg-lyt-body {
+    padding: 10px;
+    padding-bottom: 60px;
+}
+
+/* |||pg-lyt-footer||| */
+#pg-lyt-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 60px;
+    background-color: lightgray;
+    text-align: center;
+}
+/* <<<<<<<<<<PAGE LAYOUT END<<<<<<<<<< */
+
+#hr-footer {
+    display: block;
+    border: 3px solid black;
+    border-radius: 2px 8px 15px 4px;
+}
+
+.td-r-align {
+    text-align: right;
+}
