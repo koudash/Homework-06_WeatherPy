@@ -44,3 +44,19 @@ html, body {
 .td-r-align {
     text-align: right;
 }
+
+/* Setup striped color for table */
+/* Ref: https://stackoverflow.com/questions/20825211/bootstrap-table-striped-how-do-i-change-the-stripe-background-colour */
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: gray;
+}
+
+.table-striped > tbody > tr:nth-child(2n) > td {
+    background-color: white;
+}
+
+/* Setup hover color for table */
+/* Ref: https://stackoverflow.com/questions/15643037/how-do-i-change-the-hover-over-color-for-a-hover-over-table-in-bootstrap */
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: powderblue;
+}
